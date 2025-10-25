@@ -1,13 +1,7 @@
 import { GoogleGenAI, Modality } from "@google/genai";
 import type { ImageFile } from '../types';
 
-const API_KEY = process.env.API_KEY;
-
-if (!API_KEY) {
-  throw new Error("API_KEY environment variable not set");
-}
-
-const ai = new GoogleGenAI({ apiKey: API_KEY });
+const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
 
 const getSinglePersonPrompt = () => `Generate a photorealistic image based on the person or people in the provided photo, showing them celebrating Deepavali. If there is one person, dress them in traditional Indian attire (a stylish kurtha for a male, or a beautiful chudidar for a female) holding a lit 'diya' (oil lamp). If there is a couple, dress them in complementary traditional Indian attire and have them jointly hold a single lit 'diya'. In either case, they should have warm, happy expressions. The background should be a festive home interior, softly lit and decorated with fairy lights and marigold garlands for Deepavali. The final image should be a high-quality portrait focused on the subject(s).`;
 
